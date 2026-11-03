@@ -1,0 +1,14 @@
+{
+  "sha256": {
+    ".gitignore": "733961d725dbb9949a0c56081b74be6b056cdca54a228e40141b6d051dd63ecb",
+    "BRAND.md": "c3c4cd71be373eb18b4fe23e8b6e7dc81624b7135c01728c67edacfc2df8985b",
+    "LICENSE": "7d211fb4e3bcb0479621c3ba76fcc771cb5f39f6ef78feaf9a602310893d778b",
+    "README.md": "e7b30165c9129bb242b748da2f9502805ae948d3c158f40a5d7a733545f22bee",
+    "examples/index.html": "938cb3b0283f367d1eff04bf4c84183e514f965228499df789869d205f8e8cf6",
+    "package.json": "873f6c22d442c1679db54c2c44129360ef9d9590b2c373312ea96cde209d7b69",
+    "provenance/artifact.original.html": "0d634ee8746842e02353b989ac12d9c22cd41d7499b6752e4854d5321e2f0e2f",
+    "src/artifact.css": "cb835beee7e35c666c06fc8c354513df29d0e36b668f06034267d664ceebb9be",
+    "src/artifact.js": "276063ac7cbd7ef1e80cfcde49a347af9bc4719bb16dd251f6ccb670c811c464",
+    "tests/browser.mjs": "80c1a2a8642729aef9cc09f090cab8d5b244cd5345828e38b665d65f38009a30"
+  }
+}

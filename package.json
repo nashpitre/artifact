@@ -1,0 +1,18 @@
+{
+  "name": "@nashpitre/artifact",
+  "version": "0.1.0",
+  "description": "Quiet surfaces. Brief disruptions. Portable distortion effects from nashp.com.",
+  "type": "module",
+  "exports": {
+    ".": "./src/artifact.js",
+    "./style.css": "./src/artifact.css"
+  },
+  "files": [
+    "src"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nashpitre/artifact.git"
+  }
+}
