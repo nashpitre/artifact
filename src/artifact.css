@@ -1,0 +1,8 @@
+[data-ar-content-malfunction="a"],[data-ar-content-malfunction="b"]{animation:ar-content-malfunction 220ms steps(1,end);}
+[data-ar-content-malfunction="b"]{animation-name:ar-content-malfunction-counter;}
+[data-ar-content-malfunction="tear"]{animation:ar-content-malfunction-distortion 220ms steps(1,end);}
+@keyframes ar-content-malfunction-distortion{0%,100%{filter:var(--ar-distortion-filter,none);}}
+svg[id^="artifact-"][id$="-defs"]{position:absolute;width:0;height:0;pointer-events:none;}
+@keyframes ar-content-malfunction{0%,100%{translate:0 0;}12%{translate:-2px 0;}24%{translate:3px 0;}38%{translate:-1px 0;}54%{translate:1px 0;}72%{translate:0 0;}}
+@keyframes ar-content-malfunction-counter{0%,100%{translate:0 0;}12%{translate:2px 0;}24%{translate:-2px 0;}38%{translate:1px 0;}54%{translate:-1px 0;}72%{translate:0 0;}}
+@media(prefers-reduced-motion:reduce){[data-ar-content-malfunction]{animation:none!important;}}
