@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Artifact — Quiet surfaces. Brief disruptions.</title>
+<link rel="stylesheet" href="../src/artifact.css">
+<style>
+:root{color-scheme:light dark;font-family:ui-monospace,monospace;background:#e9e6dd;color:#25251f}*{box-sizing:border-box}body{margin:0;padding:clamp(20px,5vw,80px)}header,footer{display:flex;justify-content:space-between;gap:20px;border-top:1px solid;padding:18px 0;font-size:12px}main{max-width:1000px;margin:12vh 0}h1{font-family:Arial,sans-serif;font-size:clamp(56px,15vw,200px);letter-spacing:-.08em;margin:0 0 30px;line-height:1}h2{font-weight:400;font-size:clamp(22px,4vw,42px);max-width:700px}p{line-height:1.7;max-width:620px}nav{display:flex;gap:12px;flex-wrap:wrap;margin:40px 0}button{font:inherit;background:transparent;border:1px solid;padding:12px 16px;color:inherit;cursor:pointer}button:hover{background:#d7ff42;color:#15170a}output{display:block;font-size:12px;min-height:3em}a{color:inherit}@media(prefers-color-scheme:dark){:root{background:#1a1c19;color:#e9e6dd}}
+</style>
+<header><span>ARTIFACT / EFFECT STUDY 001</span><span>v0.1.0</span></header>
+<main id="signal">
+<h1>ARTIFACT</h1>
+<h2>Quiet surfaces.<br>Brief disruptions.</h2>
+<p>A signal slips. Type bends. For a fraction of a second, the surface reveals the machinery underneath. Then everything returns.</p>
+<p>A portable piece of nashp.com. Bring it to your own site, interface, or experiment.</p>
+</main>
+<nav aria-label="Effect controls"><button data-effect="tear">Trigger tear</button><button data-effect="jolt">Trigger jolt</button><button id="pause">Pause</button></nav>
+<output id="status" aria-live="polite">Automatic tears every 25–35 seconds. Trigger an effect to preview it.</output>
+<footer><span>BUILT FROM AN IMPERFECT SIGNAL</span><a href="https://github.com/nashpitre/artifact">Source on GitHub ↗</a></footer>
+<script type="module">
+import { createArtifact } from '../src/artifact.js';
+const artifact = createArtifact(document.querySelector('#signal'));
+const status = document.querySelector('#status');
+for (const button of document.querySelectorAll('[data-effect]')) {
+  button.addEventListener('click', () => {
+    button.blur();
+    // Allow pointer/focus cleanup before invoking the interaction-aware API.
+    setTimeout(() => {
+      const ok = artifact.pulse(button.dataset.effect);
+      status.textContent = ok ? `${button.dataset.effect} · 220 ms` : `No eligible pulse. ${artifact.coverage.status || 'Waiting for visibility'}. Reduced motion and interaction safeguards apply.`;
+    }, 50);
+  });
+}
+let paused = false;
+document.querySelector('#pause').onclick = event => {
+  paused = !paused;
+  artifact[paused ? 'pause' : 'resume']();
+  event.currentTarget.textContent = paused ? 'Resume' : 'Pause';
+  status.textContent = paused ? 'Effects paused.' : 'Automatic effects resumed.';
+};
+</script>
+</html>
